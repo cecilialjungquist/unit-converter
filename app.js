@@ -1,18 +1,14 @@
-// get input.value on eventlistener
-// convert input.value for length, volume and mass and return output
-// render ouput for each
 
-let input = document.getElementById('number-input').value;
 const convertBtn = document.getElementById('convert-btn');
 
-const paragraphList = document.querySelectorAll('p');
-
-let feet = 300;
-let meters = 22;
-
-paragraphList.forEach(paragraph => {
-    paragraph.innerHTML = `${input} meter = ${feet} feet | ${input} feet = ${meters}`;
-});
+convertBtn.addEventListener('click', function() {
+    let input = document.getElementById('number-input').value;
+    
+    convertLength(input);
+    convertVolume(input);
+    convertMass(input);
+    
+})
 
 // converter logic
 /*
@@ -21,31 +17,23 @@ paragraphList.forEach(paragraph => {
 1 kilogram = 2.204 pound
 */
 
-function converter(inputValue) {
-    let feetToMeters = (inputValue / 3.281).toFixed(3);
-    let metersToFeet = (inputValue * 3.281).toFixed(3);
-
-    console.log(feetToMeters);
-    console.log(metersToFeet);
-    
-    let gallonsToLiters = (inputValue / 0.264).toFixed(3);
-    let litersToGallons = (inputValue * 0.264).toFixed(3);
-    console.log(gallonsToLiters);
-    console.log(litersToGallons);
-
-    let poundToKilos = (inputValue / 2.204).toFixed(3);
-    let kilosToPounds = (inputValue * 2.204).toFixed(3);
-    console.log(poundToKilos);
-    console.log(kilosToPounds);
-
-}
-
-converter(20);
-
-function convertLength(input) {
+function convertLength(inputValue) {
     let outputMeter = (inputValue / 3.281).toFixed(3);
     let outputFeet = (inputValue * 3.281).toFixed(3);
 
-
-    document.getElementById('length-paragraph').innerHTML = `${input} meter = ${outputFeet} feet | ${input} feet = ${outputMeter}`;
+    document.getElementById('length-paragraph').innerHTML = `${inputValue} meters = ${outputFeet} feet | ${inputValue} feet = ${outputMeter} meters`;
 }
+
+function convertVolume(inputValue) {
+    let outputLiters = (inputValue / 0.264).toFixed(3);
+    let outputGallons = (inputValue * 0.264).toFixed(3);
+
+    document.getElementById('volume-paragraph').innerHTML = `${inputValue} liters = ${outputGallons} gallons | ${inputValue} gallons = ${outputLiters} liters`;
+}   
+
+function convertMass(inputValue) {
+    let outputKilos = (inputValue / 2.204).toFixed(3);
+    let outputPounds = (inputValue * 2.204).toFixed(3);
+
+    document.getElementById('mass-paragraph').innerHTML = `${inputValue} kilograms = ${outputKilos} pounds | ${inputValue} kilograms = ${outputPounds} pounds`;
+}   
