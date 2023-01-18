@@ -10,31 +10,101 @@
 :root {
     --body-bg-color: rgb(22, 22, 41);
     --bg-color-light: #6943FF;
-    --bg-color-dark-background: #273549;
+    --bg-color-dark-background: #1F2937;
     --bg-color-dark-forground: #273549;
     --accent-color-purple: #CCC1FF;
 
     --padding-big: 2rem;
-    --padding-medium: 1.5rem;
+    --padding-medium: 1.2rem;
     --padding-small: .6rem;
 
     --h1-fs: 28px;
     --h2-fs: 20px;
     --p-fs: 14px;
+
+    --border-radius: 5px;
 }
 
 body {
+    min-height: 100vh;
     background-color: var(--body-bg-color);
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
     width: 34rem;
+}
+
+.container__section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5rem auto;
     gap: var(--padding-big);
     background-color: var(--bg-color-light);
     padding: var(--padding-big);
+}
+
+h1 {
+    font-size: var(--h1-fs);
+    font-weight: 800;
+}
+
+#number-input {
+    appearance: none;
+    border: 1px solid var(--accent-color-purple);
+    background-color: transparent;
+    border-radius: var(--border-radius);
+    font-size: 58px;
+    font-weight: 800;
+    width: 10rem;
+    color: white;
+    padding: var(--padding-small);
+    text-align: center;
+}
+
+#number-input::-webkit-inner-spin-button {
+    display: none;
+}
+
+#convert-btn {
+    padding: var(--padding-small) var(--padding-medium);
+    border-radius: var(--border-radius);
+    appearance: none;
+    border: none;
+}
+#convert-btn:hover {
+    background-color: var(--accent-color-purple);
+    cursor: pointer;
+}
+
+.display {
+    padding: var(--padding-medium);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-medium);
+    background-color: var(--bg-color-dark-background);
+}
+
+.display__section {
+    background-color: var(--bg-color-dark-forground);
+    border-radius: var(--border-radius);
+    padding: var(--padding-medium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding-small);
+}
+
+h2 {
+    color: var(--accent-color-purple);
+    font-size: var(--h2-fs);
+    font-weight: 600;
+}
+
+p {
+    font-size: var(--p-fs);
 }
